@@ -1,0 +1,4 @@
+---
+swap::enable: true
+swap::swap_device: /swapfile
+swap::swap_size_mb: 2048
