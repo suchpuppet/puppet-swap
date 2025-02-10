@@ -10,7 +10,7 @@ describe 'swap' do
 
       context 'with default values from Hiera' do
         it { is_expected.to contain_exec('create_swap_file').with_command('dd if=/dev/zero of=/swapfile bs=1M count=2048') }
-        it { is_expected.to contain_file_line('ensure_swap_in_fstab').with_line('/swapfile none swap sw 0 0') }
+        it { is_expected.to contain_mount('/swapfile') }
       end
     end
   end

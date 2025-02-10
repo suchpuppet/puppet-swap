@@ -54,5 +54,11 @@ class swap (
     }
   }
 
-  include swap::fstab
+  mount { $swap_device:
+    ensure  => $ensure,
+    atboot  => true,
+    device  => $swap_device,
+    fstype  => 'swap',
+    options => 'defaults',
+  }
 }
