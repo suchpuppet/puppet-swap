@@ -6,9 +6,9 @@ class swap::fstab {
     augeas { 'remove_swap_from_fstab':
       context => '/files/etc/fstab',
       changes => [
-        "rm *[file = '${swap::swap_device}']",
+        "rm *[file = \\'${swap::swap_device}\\']",
       ],
-      onlyif  => "match *[file = '/swapfile'] size > 0",
+      onlyif  => "match *[file = \\'${swap::swap_device}\\'] size > 0",
     }
   } else {
     file_line { 'ensure_swap_in_fstab':
