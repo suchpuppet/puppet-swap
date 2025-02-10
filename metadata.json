@@ -2,9 +2,9 @@
   "name": "suchpuppet-swap",
   "version": "0.1.0",
   "author": "scott@brimhallmail.com",
-  "summary": "",
+  "summary": "Manages swap devices",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/suchpuppet/puppet-swap",
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
