@@ -25,6 +25,7 @@ class swap (
     exec { 'disable_swap':
       command  => 'swapoff -a',
       provider => 'shell',
+      onlyif   => "grep ${swap_device} /proc/swaps",
     }
   } else {
     exec { 'create_swap_file':
