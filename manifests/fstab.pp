@@ -6,6 +6,7 @@ class swap::fstab {
     file_line { 'remove_swap_from_fstab':
       ensure => absent,
       match  => '.*swap.*',
+      line   => 'irrelevant',
       path   => '/etc/fstab',
     }
   } else {
