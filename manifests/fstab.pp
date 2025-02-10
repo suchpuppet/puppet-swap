@@ -3,11 +3,12 @@ class swap::fstab {
   include swap
 
   if $swap::enable == false {
-    file_line { 'remove_swap_from_fstab':
-      ensure => absent,
-      match  => '.*swap.*',
-      line   => 'irrelevant',
-      path   => '/etc/fstab',
+    augeas { 'remove_swap_from_fstab':
+      context => '/files/etc/fstab',
+      changes => [
+        "rm *[file = '${swap::swap_device}']",
+      ],
+      onlyif  => "match *[file = '/swapfile'] size > 0",
     }
   } else {
     file_line { 'ensure_swap_in_fstab':
